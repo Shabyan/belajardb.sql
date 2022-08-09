@@ -1,0 +1,68 @@
+
+Setting environment for using XAMPP for Windows.
+Kjn93@DESKTOP-69ESDLP c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 19
+Server version: 10.4.24-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| pikni              |
+| sekolah            |
+| shabyan            |
+| test               |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]> use shabyan;
+Database changed
+MariaDB [shabyan]> create tbl_siswa (id_siswa varchar(5), nama_siswa varchar(50), alamat varchar(100), primary key (id_siswa));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'tbl_siswa (id_siswa varchar(5), nama_siswa varchar(50), alamat varchar(100), ...' at line 1
+MariaDB [shabyan]> create table tbl_siswa (id_siswa varchar(5), nama_siswa varchar(50), alamat varchar(100), primary key (id_siswa));
+Query OK, 0 rows affected (0.020 sec)
+
+MariaDB [shabyan]> show tables
+    -> show tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'show tables' at line 2
+MariaDB [shabyan]> show tables;
++-------------------+
+| Tables_in_shabyan |
++-------------------+
+| tbl_siswa         |
++-------------------+
+1 row in set (0.001 sec)
+
+MariaDB [shabyan]> desc tbl_siswa;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id_siswa   | varchar(5)   | NO   | PRI | NULL    |       |
+| nama_siswa | varchar(50)  | YES  |     | NULL    |       |
+| alamat     | varchar(100) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+3 rows in set (0.008 sec)
+
+MariaDB [shabyan]> INSERT into tbl_siswa (id_siswa, nama_siswa, alamat) values ("1","shabyan","kalijati");
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [shabyan]>  select * from tbl_siswa;
++----------+------------+----------+
+| id_siswa | nama_siswa | alamat   |
++----------+------------+----------+
+| 1        | shabyan    | kalijati |
++----------+------------+----------+
+1 row in set (0.002 sec)
+
+MariaDB [shabyan]>
